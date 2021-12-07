@@ -1,0 +1,12 @@
+---
+- name: "webapp | CHECK CREDENTIALS | Checking if the credentials exist"
+  stat:
+    path: "{{ secrets }}"
+  register: CheckFiles
+  tags: check
+
+- name: "webapp | CHECK FILE INDEX.HTML | Checking if the file /home/admin/index.html exist"
+  stat:
+    path: "{{ index }}"
+  register: CheckFiles
+  tags: check

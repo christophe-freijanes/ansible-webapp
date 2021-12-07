@@ -1,0 +1,13 @@
+---
+- name: "webapp | DEPLOYMENT ROLE | WEBAPP"
+  hosts: prod
+  become: true
+  gather_facts: yes
+  strategy: free
+  remote_user: "{{ system_user }}"
+  vars_files:
+    - "{{ defaults }}"
+    - "{{ secrets }}"
+  roles:
+    - role: webapp
+      tags: [ "webapp" ]

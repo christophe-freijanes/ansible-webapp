@@ -1,0 +1,28 @@
+---
+- name: include task | INSTALL SOME PACKAGES
+  tags: install-packages
+  include_tasks: install-packages.yml
+
+- name: include task | INSTALL PYTHON DOCKER
+  tags: install-python
+  include_tasks: install-python.yml
+
+- name: include task | COPY INDEX FILES
+  tags: copy-files
+  include_tasks: copy-files.yml
+
+- name: include task | CHECKING FILES
+  tags: checking-files
+  include_tasks: checking-files.yml
+
+- name: include task | CHECKING DOCKER SERVICES
+  tags: checking-services
+  include_tasks: checking-services.yml
+
+- name: include tasks | CREATE APACHE CONTAINER
+  tags: create-container
+  include_tasks: create-container.yml
+
+- name: include tasks | CHECKING APACHE CONTAINER
+  tags: checking-container
+  include_tasks: checking-container.yml

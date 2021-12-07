@@ -1,0 +1,8 @@
+---
+system_user: 'admin'
+index: '/home/admin/index.html'
+secrets: 'roles/webapp/files/secrets/credentials.yml'
+defaults: 'roles/webapp/defaults/main.yml'
+apache2: '/usr/local/apache2/htdocs/index.html'
+client1: 'http://192.168.99.11:80/'
+client2: 'http://192.168.99.12:80/'

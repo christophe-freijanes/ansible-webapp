@@ -1,0 +1,10 @@
+---
+- name: "webapp | CONTAINER APACHE | Creation Apache container"
+  docker_container:
+    name: webapp
+    image: httpd
+    ports:
+      - "80:80"
+    volumes:
+      - "{{ index }}:{{ apache2 }}"
+  tags: install

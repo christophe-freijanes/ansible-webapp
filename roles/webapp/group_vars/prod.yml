@@ -1,0 +1,3 @@
+---
+ansible_user: "{{ system_user }}"
+ansible_password: "{{ vault_ansible_password }}"

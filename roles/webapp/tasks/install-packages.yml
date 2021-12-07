@@ -1,0 +1,43 @@
+---
+- name: "webapp | INSTALL UPDATE | Update the system"
+  yum:
+    name: '*'
+    state: latest
+    update_cache: yes
+    update_only: yes
+  register: yum_update_status
+  when:
+    - ansible_os_family == "RedHat"
+    - ansible_distribution == "CentOS"
+  tags: install
+
+- name: "webapp | LIST UPDATE | List updated packages"
+  shell: rpm -qa --last | grep "$(date +%a\ %d\ %b\ %Y)" |cut -f 1 -d " "
+  register: list
+  args:
+    warn: no
+  tags: install
+
+- name: "webapp | DEBUG UPDATE | Show output update the system"
+  debug: msg="{{ list.stdout_lines }}"
+  tags: install
+
+- name: "webapp | INSTALL PACKATES | Installation packates"
+  package:
+    name:  '{{ item }}'
+    state: present
+    update_cache: yes
+  when:
+    - ansible_os_family == "RedHat"
+    - ansible_distribution == "CentOS"
+    - yum_update_status.changed
+  loop:
+    - epel-release
+    - wget
+    - git
+  tags: install
+
+- name: "webapp | REMOVE PACKATES | Remove packates not needed anymore"
+  yum:
+    autoremove: yes
+  tags: install

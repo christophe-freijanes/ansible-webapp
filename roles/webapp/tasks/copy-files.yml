@@ -1,0 +1,6 @@
+---
+- name: "webapp | TEMPLATE INDEX.HTML | Copy website file template"
+  template:
+    src: index.html.j2
+    dest: "{{ index }}"
+  tags: install
