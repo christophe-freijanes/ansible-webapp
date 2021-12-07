@@ -1,6 +1,6 @@
 # ansible-webapp
 - Repository ansible-webapp of training deployment with role ansible
-- This playbook will allow to deploy on two client servers an apache2 container containing a web site.
+- This playbook will allow you to deploy an Apache2 container containing a website on two client servers.
 
 - For deploy the webapp, run this command:
 ```sh
