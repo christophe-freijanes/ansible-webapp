@@ -4,7 +4,7 @@
 
 - For deploy the webapp, run this command:
 ```sh
-ansible-playbook -i hosts.yml -vvv play-deploy-webapp.yml --tags "webapp"
+ansible-playbook -i hosts.yml play-deploy-webapp.yml --tags "webapp"
 ```
 - Command-line ansible tag
 ```sh
