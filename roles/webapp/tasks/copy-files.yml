@@ -3,4 +3,4 @@
   template:
     src: index.html.j2
     dest: "{{ index }}"
-  tags: [ webapp, install ]
+  tags: [ webapp, install, copy-files ]

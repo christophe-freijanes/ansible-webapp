@@ -7,4 +7,4 @@
       - "80:80"
     volumes:
       - "{{ index }}:{{ apache2 }}"
-  tags: [ webapp, install ]
+  tags: [ webapp, install, create-container ]

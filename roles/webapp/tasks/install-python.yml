@@ -3,13 +3,13 @@
   get_url:
     url: http://bootstrap.pypa.io/pip/2.7/get-pip.py
     dest: /tmp/get-pip.py
-  tags: [ webapp, install ]
+  tags: [ webapp, install, install-python ]
 
 - name: "webapp | INSTALL PYTHON | Install python-pip"
   command: python2.7 /tmp/get-pip.py
-  tags: [ webapp, install ]
+  tags: [ webapp, install, install-python ]
 
 - name: "webapp | INSTALL DOCKER | Install docker python"
   pip:
     name: docker-py
-  tags: [ webapp, install ]
+  tags: [ webapp, install, install-python ]

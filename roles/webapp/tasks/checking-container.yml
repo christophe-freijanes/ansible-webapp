@@ -3,7 +3,7 @@
   stat:
     path: "{{ apache2 }}"
   register: CheckFiles
-  tags: [ webapp, check ]
+  tags: [ webapp, check, checking-container ]
 
 - name: "webapp | CHECK HOST ACCESSIBLE CLIENT 1 | Waiting for all containers to start up and {{ client1 }} to be accessible"
   wait_for:
@@ -12,17 +12,17 @@
     timeout: 60
   register: host_accessible_clt1
   failed_when: False
-  tags: [ webapp, check ]
+  tags: [ webapp, check, checking-container ]
 
 - debug:
     msg: "Site Client_1 is reachable"
   when: host_accessible_clt1.state is defined and host_accessible_clt1.state == "started"
-  tags: [ webapp, check ]
+  tags: [ webapp, check, checking-container ]
 
 - debug:
     msg: "Site Client_1 is NOT reachable"
   when: host_accessible_clt1.state is defined and host_accessible_clt1.state == "stopped"
-  tags: [ webapp, check ]
+  tags: [ webapp, check, checking-container ]
 
 - name: "webapp | CHECK HOST ACCESSIBLE CLIENT 2 | Waiting for all containers to start up and {{ client2 }} to be accessible"
   wait_for:
@@ -31,14 +31,14 @@
     timeout: 60
   register: host_accessible_clt2
   failed_when: False
-  tags: [ webapp, check ]
+  tags: [ webapp, check, checking-container ]
 
 - debug:
     msg: "Site Client_2 is reachable"
   when: host_accessible_clt2.state is defined and host_accessible_clt2.state == "started"
-  tags: [ webapp, check ]
+  tags: [ webapp, check, checking-container ]
 
 - debug:
     msg: "Site Client_2 is NOT reachable"
   when: host_accessible_clt2.state is defined and host_accessible_clt2.state == "stopped"
-  tags: [ webapp, check ]
+  tags: [ webapp, check, checking-container ]
