@@ -17,33 +17,33 @@
   include_tasks:
     file: copy-files.yml
     apply:
-      tags: copy-files
+      tags: install
   tags: [ webapp, install, copy-files ]
 
 - name: include task | CHECKING FILES
   include_tasks: 
     file: checking-files.yml
     apply:
-      tags: checking-files
+      tags: check
   tags: [ webapp, check, checking-files ]
 
 - name: include task | CHECKING DOCKER SERVICES
   include_tasks: 
     file: checking-services.yml
     apply:
-      tags: checking-services
+      tags: check
   tags: [ webapp, check, checking-services ]
 
 - name: include tasks | CREATE APACHE CONTAINER
   include_tasks: 
     file: create-container.yml
     apply:
-      tags: create-container
+      tags: install
   tags: [ webapp, install, create-container ]
 
 - name: include tasks | CHECKING APACHE CONTAINER
   include_tasks: 
     file: checking-container.yml
     apply:
-      tags: checking-container
+      tags: check
   tags: [ webapp, check, checking-container ]
