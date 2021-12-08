@@ -25,14 +25,14 @@
     file: checking-files.yml
     apply:
       tags: checking-files
-  tags: [ webapp, install, checking-files ]
+  tags: [ webapp, check, checking-files ]
 
 - name: include task | CHECKING DOCKER SERVICES
   include_tasks: 
     file: checking-services.yml
     apply:
       tags: checking-services
-  tags: [ webapp, install, checking-services ]
+  tags: [ webapp, check, checking-services ]
 
 - name: include tasks | CREATE APACHE CONTAINER
   include_tasks: 
@@ -46,4 +46,4 @@
     file: checking-container.yml
     apply:
       tags: checking-container
-  tags: [ webapp, install, checking-container ]
+  tags: [ webapp, check, checking-container ]
