@@ -1,28 +1,49 @@
 ---
 - name: include task | INSTALL SOME PACKAGES
+  include_tasks:
+    file: install-packages.yml
+    apply:
+      tags: install
   tags: [ webapp, install, install-packages ]
-  include_tasks: install-packages.yml
 
 - name: include task | INSTALL PYTHON DOCKER
+  include_tasks:
+    file: install-python.yml
+    apply:
+      tags: install
   tags: [ webapp, install, install-python ]
-  include_tasks: install-python.yml
 
 - name: include task | COPY INDEX FILES
+  include_tasks:
+    file: copy-files.yml
+    apply:
+      tags: copy-files
   tags: [ webapp, install, copy-files ]
-  include_tasks: copy-files.yml
 
 - name: include task | CHECKING FILES
+  include_tasks: 
+    file: checking-files.yml
+    apply:
+      tags: checking-files
   tags: [ webapp, install, checking-files ]
-  include_tasks: checking-files.yml
 
 - name: include task | CHECKING DOCKER SERVICES
+  include_tasks: 
+    file: checking-services.yml
+    apply:
+      tags: checking-services
   tags: [ webapp, install, checking-services ]
-  include_tasks: checking-services.yml
 
 - name: include tasks | CREATE APACHE CONTAINER
+  include_tasks: 
+    file: create-container.yml
+    apply:
+      tags: create-container
   tags: [ webapp, install, create-container ]
-  include_tasks: create-container.yml
 
 - name: include tasks | CHECKING APACHE CONTAINER
+  include_tasks: 
+    file: checking-container.yml
+    apply:
+      tags: checking-container
   tags: [ webapp, install, checking-container ]
-  include_tasks: checking-container.yml
