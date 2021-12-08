@@ -15,11 +15,12 @@
   shell: rpm -qa --last | grep "$(date +%a\ %d\ %b\ %Y)" |cut -f 1 -d " "
   register: list
   args:
-    warn: no
+   warn: no
   tags: install
 
 - name: "webapp | DEBUG UPDATE | Show output update the system"
-  debug: msg="{{ list.stdout_lines }}"
+  debug:
+    msg: "{{ list.stdout_lines }}"
   tags: install
 
 - name: "webapp | INSTALL PACKATES | Installation packates"
