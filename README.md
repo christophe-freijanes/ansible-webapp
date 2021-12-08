@@ -2,10 +2,21 @@
 - Repository ansible-webapp of training deployment with role ansible
 - This playbook will allow you to deploy an Apache2 container containing a website on two client servers.
 
-- For deploy the webapp, run this command:
+- For run the role webapp, run this command:
 ```sh
 ansible-playbook -i hosts.yml play-deploy-webapp.yml --tags "webapp"
 ```
+
+- List tags :
+```sh
+ansible-playbook -i hosts.yml play-deploy-webapp.yml --list-tags
+```
+
+- Run all tasks with tags "check" :
+```sh
+ansible-playbook -i hosts.yml play-deploy-webapp.yml --tags "check"
+```
+
 - Command-line ansible tag
 ```sh
 --tags all - run all tasks, ignore tags (default behavior)
