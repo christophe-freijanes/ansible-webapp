@@ -10,4 +10,4 @@
     - "{{ secrets }}"
   roles:
     - role: webapp
-      tags: [ "webapp" ]
+      tags: [ webapp, check, install ]

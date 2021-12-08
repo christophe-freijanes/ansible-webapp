@@ -9,19 +9,19 @@
   when:
     - ansible_os_family == "RedHat"
     - ansible_distribution == "CentOS"
-  tags: install
+  tags: [ webapp, install ]
 
 - name: "webapp | LIST UPDATE | List updated packages"
   shell: rpm -qa --last | grep "$(date +%a\ %d\ %b\ %Y)" |cut -f 1 -d " "
   register: list
   args:
    warn: no
-  tags: install
+  tags: [ webapp, install ]
 
 - name: "webapp | DEBUG UPDATE | Show output update the system"
   debug:
     msg: "{{ list.stdout_lines }}"
-  tags: install
+  tags: [ webapp, install ]
 
 - name: "webapp | INSTALL PACKATES | Installation packates"
   package:
@@ -36,9 +36,9 @@
     - epel-release
     - wget
     - git
-  tags: install
+  tags: [ webapp, install ]
 
 - name: "webapp | REMOVE PACKATES | Remove packates not needed anymore"
   yum:
     autoremove: yes
-  tags: install
+  tags: [ webapp, install ]

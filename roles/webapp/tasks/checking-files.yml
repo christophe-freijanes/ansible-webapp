@@ -3,10 +3,10 @@
   stat:
     path: "{{ secrets }}"
   register: CheckFiles
-  tags: check
+  tags: [ webapp, check ]
 
 - name: "webapp | CHECK FILE INDEX.HTML | Checking if the file /home/admin/index.html exist"
   stat:
     path: "{{ index }}"
   register: CheckFiles
-  tags: check
+  tags: [ webapp, check ]
